@@ -3,16 +3,16 @@ async function obtenerUnSoloDog(id, URL, contenedor) {
       const respuesta = await fetch(`${URL}/${id}`)
       const dog = await respuesta.json()
       if(!dog){
-          alert("Perro no encontrado")
+          alert("Unicornio no encontrado")
       }
       contenedor.innerHTML = `<div class=" card mb-3">
         <img
           src=${dog.image}
-          class="dog-image"
+          class="unicorn-img"
           alt="..."
         />
         <div class="card-body">
-          <h5 id="nombre-dog" class="card-title">${dog.name}</h5>
+          <h5 id="nombre-unicornio" class="card-title">${dog.name}</h5>
           <p id="desc" class="card-text">
             ${dog.breed}
           </p>

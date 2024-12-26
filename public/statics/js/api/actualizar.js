@@ -1,18 +1,44 @@
-import obtenerUnSoloDog from "./obtenerUnSoloDog.js"; // Ya importas la función
+import obtenerUnSoloDog from "./obtenerUnSoloDog.js";
+const btnEnviar = document.querySelector("#enviar");
+const URL = "https://sample-dogs-api.netlify.app/api/v1/dogs";
+const inputNombre = document.querySelector("#nombre");
+const inputRaza = document.querySelector("#raza");
+const inputImagen = document.querySelector("#imagen");
+const urlParams = new URLSearchParams(window.location.search).get("id");
+const contenedor = document.querySelector("#contenedor")
 
-const searchForm = document.querySelector("#searchForm");
-const searchInput = document.querySelector("#searchInput");
-const contenedor = document.querySelector("#contenedor");
+obtenerUnSoloDog(urlParams, URL, contenedor)
 
-const URL = "https://sample-dogs-api.netlify.app/api/v1/dogs"; 
+let data = {};
+function obtenerDatos(evento) {
+  const eventoNombre = evento.target.name;
+  const eventoValue = evento.target.value;
 
-// Evento para manejar la búsqueda
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
-  const id = searchInput.value.trim(); // Obtener el valor ingresado en el campo
-  if (!id) {
-    alert("Por favor ingresa un ID válido.");
+  const newData = { ...data, [eventoNombre]: eventoValue };
+  data = newData;
+}
+inputNombre.addEventListener("change", (evento) => {
+  obtenerDatos(evento);
+});
+inputRaza.addEventListener("change", (evento) => {
+  obtenerDatos(evento);
+});
+inputImagen.addEventListener("change", (evento) => {
+  obtenerDatos(evento);
+});
+
+btnEnviar.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (!data.name && !data.image && !data.breed) {
+    alert("Debes de completar por lo menos un dato para actualizar");
     return;
   }
-  obtenerUnSoloDog(id, contenedor, URL); // Llamar a la función de búsqueda pasando contenedor y URL
+  alert("unicornio actualizado");
+  fetch(`${URL}/${urlParams}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then((res) => {
+    window.location.assign("index.html");
+  });
 });
