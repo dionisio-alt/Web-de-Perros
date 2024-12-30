@@ -14,6 +14,7 @@
   </head>
   <body>
     <form class="formulario">
+      <div>
       <div class="mb-3">
         <label for="nombre"  class="form-label">Nombre del perro</label>
         <input type="text" required name="name" class="form-control" id="nombre" aria-describedby="emailHelp">
@@ -26,7 +27,7 @@
         <label for="imagen" class="form-label">Imagen del perro</label>
         <input type="url" name="image"  pattern="https://.*" placeholder="https://ejemplo.com" required class="form-control" id="imagen">
       </div>
-      <button type="submit" id="enviar" class="btn btn-primary">Enviar Datos</button>
+      <button type="submit" id="enviar" class="btn">Enviar Datos</button>
     </form>
    
     <script type="module" src="./statics/js/api/formulario.js"></script>

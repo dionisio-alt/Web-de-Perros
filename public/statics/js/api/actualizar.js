@@ -33,7 +33,7 @@ btnEnviar.addEventListener("click", (event) => {
     alert("Debes de completar por lo menos un dato para actualizar");
     return;
   }
-  alert("unicornio actualizado");
+  alert("Perro actualizado");
   fetch(`${URL}/${urlParams}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

@@ -1,11 +1,28 @@
+body{
+    background-color: #f5f5dc;
+}
 .formulario{
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 80%;
+    width: 50%;
     margin-top: 150px;
+    padding: 20px;
+    background-color: #d0d8c0;
+    border: 1px solid #8DA88A;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-#enviar{
-    width: 200px;
+#enviar{ 
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    text-align: center;
     margin: auto;
+    width: 15%;
+    border: 1px solid #8DA88A;
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(208, 200, 142);
+    padding: 10px;
 }

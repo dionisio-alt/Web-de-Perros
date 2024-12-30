@@ -24,11 +24,6 @@ async function obtenerDog(contenedor, URL) {
             <p id="desc" class="card-text">
               ${dog.raza}
             </p>
-            <p class="card-text">
-              <small class="text-body-secondary">#Devf</small>
-              <small class="text-body-secondary">#Devf</small>
-              <small class="text-body-secondary">#Devf</small>
-            </p>
           </div>
             <div class="botones"><button id="btn-eliminar">Eliminar</button> 
             <button id="btn-actualizar">Actualizar</button>
